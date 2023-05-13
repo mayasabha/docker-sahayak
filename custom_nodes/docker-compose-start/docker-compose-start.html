@@ -59,11 +59,9 @@
 </script>
 
 <script type="text/html" data-help-name="docker-compose-start">
-    <p>This node allows you to begin the creation of a new Dockerfile. You need exactly one such node for creating the Dockerfile</p>
+    <p>This node allows you to begin the creation of a new Docker Compose file. You need exactly one such node for creating the Docker Compose file</p>
 
     <ul>
-        <li>Base Image: This is the base image pulled from a Docker image repository. The specified image will be used as the starting point for building the new image.</li>
-        <li>Base Image Tag: This is the tag of the base image to use as the starting point. It could include variants such as <code>alpine</code>, or versions such as <code>22.04</code>, <code>latest</code> etc. In general, every Docker image's latest stable version has the tag <code>latest</code></li>
-        <li>Base Image Alias: This is the alias assigned to this stage of the Dockerfile to be used in multi-stage builds.</li>
+        <li>Version: This is the version of Docker Compose that is to be used for parsing this Docker Compose file.</li>
     </ul>
 </script>

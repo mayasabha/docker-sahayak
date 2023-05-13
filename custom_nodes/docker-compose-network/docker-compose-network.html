@@ -42,5 +42,9 @@
 </script>
 
 <script type="text/html" data-help-name="docker-compose-network">
-    <p>This node allows you to copy files from the host running the Docker container platform to the container image being built by the Dockerfile. The destination directory can be relative to the working directory and the source directory can be relative to the location of the Dockerfile</p>
+    <p>This node allows you to add a network to the Docker Compose file. It allows you to configure the following properties:</p>
+    <ul>
+        <li>Network Name: This is the name of the network that can be used while referring to this network in the Docker CLI or within containers.</li>
+        <li>External: If set to <code>Yes</code>, the network is marked as a reference to an externally created network and this Docker Compose file will not instruct the Docker platform to create the network and this reference will only be to an existing running network.</li>
+    </ul>
 </script>
