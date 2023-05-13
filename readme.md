@@ -11,6 +11,6 @@ docker compose up --build -d
 The application will now serve the Web-based GUI at port 8007 of the host machine. To modify this, you can modify the `services.sahayak.ports` attribute to `- <new_port>:1880`, where `<new_port>` is to be replaced with the port on which the service is to be run on the host system.
 
 ## Authors
-This repository is build by maintained by:
+This repository is built and maintained by:
 [@apoorvpal01](https://github.com/apoorvpal01)
 [@mayasabha](https://github.com/mayasabha)
