@@ -1,0 +1,83 @@
+<script type="text/javascript">
+    function inject(node) {
+        $.ajax({
+            url: 'docker-file-start/inject/' + node.id,
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            success: function (response) {
+                RED.notify(node._('inject.success', { label: 'docker-file-start' }), { type: 'success', id: 'docker-file-start', timeout: 2000 });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 404) {
+                    RED.notify(
+                        node._('common.notification.error', {
+                            message: node._('common.notification.errors.not-deployed'),
+                        }),
+                        error
+                    );
+                }
+            }
+        })
+    }
+    RED.nodes.registerType('docker-file-start', {
+        category: 'Dockerfile',
+        color: '#31A6FF',
+        defaults: {
+            baseimage: {
+                value: 'alpine',
+            },
+            baseimagetag: {
+                value: 'latest',
+            },
+            baseimagealias: {
+                value: 'base',
+            }
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "font-awesome/fa-cloud-upload",
+        label: function () {
+            return this.name || 'Choose Base Image';
+        },
+        paletteLabel: 'Choose Base Image',
+        oneditprepare: function () {
+            var node = this;
+        },
+        oneditsave: function () {
+        },
+        oneditcancel: function () {
+        },
+        button: {
+            enabled: true,
+            onclick: function () {
+                var node = this;
+                inject(node)
+            }
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="docker-file-start">
+    <div class="form-row">
+        <label for="node-input-baseimage"><i class="fa fa-tag"></i> Base Image</label>
+        <input type="text" id="node-input-baseimage" placeholder="Base Image">
+    </div>
+    <div class="form-row">
+        <label for="node-input-baseimagetag"><i class="fa fa-paperclip"></i> Base Image Tag</label>
+        <input type="text" id="node-input-baseimagetag" placeholder="Base Image Tag">
+    </div>
+    <div class="form-row">
+        <label for="node-input-baseimagealias"><i class="fa fa-paperclip"></i> Base Image Alias</label>
+        <input type="text" id="node-input-baseimagealias" placeholder="base">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="docker-file-start">
+    <p>This node allows you to begin the creation of a new Dockerfile. You need exactly one such node for creating the Dockerfile</p>
+
+    <ul>
+        <li>Base Image: This is the base image pulled from a Docker image repository. The specified image will be used as the starting point for building the new image.</li>
+        <li>Base Image Tag: This is the tag of the base image to use as the starting point. It could include variants such as <code>alpine</code>, or versions such as <code>22.04</code>, <code>latest</code> etc. In general, every Docker image's latest stable version has the tag <code>latest</code></li>
+        <li>Base Image Alias: This is the alias assigned to this stage of the Dockerfile to be used in multi-stage builds.</li>
+    </ul>
+</script>

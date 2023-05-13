@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    RED.nodes.registerType('docker-file-workdir', {
+        category: 'Dockerfile',
+        color: '#31A6FF',
+        defaults: {
+            workdir: {
+                value: '/home/root/',
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-folder-open",
+        label: function () {
+            return this.name || 'Set Working Directory';
+        },
+        paletteLabel: 'Set Working Directory',
+        oneditprepare: function () {
+            var node = this;
+        },
+        oneditsave: function () {
+        },
+        oneditcancel: function () {
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="docker-file-workdir">
+    <div class="form-row">
+        <label for="node-input-workdir"><i class="fa fa-folder"></i> Working Directory (Path on Container)</label>
+        <input type="text" id="node-input-workdir" placeholder="Path to Working Directory">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="docker-file-workdir">
+    <p>This node allows you to add a build step in the Dockerfile which sets the working directory under the current build stage. If you're not using multi-stage builds, you would most likely use this node only once, apart from certain specific use cases.</p>
+</script>

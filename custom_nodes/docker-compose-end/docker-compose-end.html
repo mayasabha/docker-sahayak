@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    RED.nodes.registerType('docker-compose-end', {
+        category: 'Docker Compose',
+        color: '#31A6FF',
+        defaults: {},
+        inputs: 1,
+        outputs: 0,
+        icon: "font-awesome/fa-floppy-o",
+        label: function () {
+            return this.name || 'Get Docker Compose File';
+        },
+        paletteLabel: 'Get Docker Compose File',
+        oneditprepare: function () {
+            var node = this;
+        },
+        oneditsave: function () {
+        },
+        oneditcancel: function () {
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="docker-compose-end">
+    <p>Nothing to edit here</p>
+</script>
+
+<script type="text/html" data-help-name="docker-compose-end">
+    <p>This node fetches the compiled Docker Compose File and prints it to the log alongside, to allow you to copy the contents and paste it in the desired project.</p>
+</script>

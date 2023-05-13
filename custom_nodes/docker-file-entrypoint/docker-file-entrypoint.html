@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    RED.nodes.registerType('docker-file-entrypoint', {
+        category: 'Dockerfile',
+        color: '#31A6FF',
+        defaults: {
+            entrypoint: {
+                value: './entrypoint.sh',
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-play",
+        label: function () {
+            return this.name || 'Set Entrypoint';
+        },
+        paletteLabel: 'Set Entrypoint',
+        oneditprepare: function () {
+            var node = this;
+        },
+        oneditsave: function () {
+        },
+        oneditcancel: function () {
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="docker-file-entrypoint">
+    <div class="form-row">
+        <label for="node-input-entrypoint"><i class="fa fa-terminal"></i> Entrypoint</label>
+        <input type="text" id="node-input-entrypoint" placeholder="Entrypoint">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="docker-file-entrypoint">
+    <p>This node allows you to set the entrypoint that should be executed when the container has been created and started.</p>
+</script>

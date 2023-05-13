@@ -1,0 +1,17 @@
+{
+    "name": "docker-file-workdir",
+    "version": "1.0.0",
+    "description": "Custom Node for File Uploads via NodeRED",
+    "main": "docker-file-workdir.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Apoorv Pal",
+    "license": "ISC",
+    "node-red": {
+      "nodes": {
+        "docker-file-workdir": "docker-file-workdir.js"
+      }
+    }
+  }
+  
