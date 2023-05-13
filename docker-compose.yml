@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  node-red-vncc:
+    container_name: node-red-vncc
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    image: node-red-vncc
+    ports:
+        - 8007:1880
