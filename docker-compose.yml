@@ -1,10 +1,10 @@
 version: '3.9'
 services:
-  node-red-vncc:
-    container_name: node-red-vncc
+  sahayak:
+    container_name: sahayak
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: .
-    image: node-red-vncc
+    image: sahayak
     ports:
         - 8007:1880
