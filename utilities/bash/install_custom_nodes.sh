@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd custom_nodes
 for d in */ ; do
     cd "$d" && npm install

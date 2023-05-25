@@ -19,6 +19,7 @@
  *  - Node Settings
  *
  **/
+const path = require('path');
 
 module.exports = {
 
@@ -380,10 +381,12 @@ module.exports = {
         //tours: false,
         page: {
             title: "Sahayak | Mayasabha",
+            favicon: path.resolve("./public/img/favicon.ico"),
         },
 
         header: {
             title: "Sahayak | Mayasabha",
+            image: path.resolve("./public/img/logo.png"),
         },
 
         theme: "midnight-red",
