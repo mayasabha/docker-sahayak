@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.8'
 services:
   sahayak:
     container_name: sahayak
@@ -7,5 +7,9 @@ services:
       context: .
     image: sahayak
     restart: always
-    ports:
-        - 8007:1880
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
